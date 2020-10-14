@@ -1,8 +1,10 @@
 const mongoose = require('mongoose')
+const AutoIncrement = require('mongoose-sequence')(mongoose);
 
 const subcategorySchema = mongoose.Schema({
     _id: {
         type: Number,
+        AutoIncrement:true,
         primaryKey: true
     },
     name: {
@@ -11,8 +13,11 @@ const subcategorySchema = mongoose.Schema({
     },
     categoryId: {
         type: Number,
-        required: true
+        required: true,
+        ref: 'Categories',
     }
+}, {
+    timestamps: true,
 }
 )
 
