@@ -1,3 +1,5 @@
+const bcrypt = require('bcryptjs')
+
 const admin = [
     {
         name: 'Paramjeet',
@@ -5,7 +7,7 @@ const admin = [
         age: 25,
         contactNumber: 9501463093,
         email: 'pkd2212870@gmail.com',
-        password: 'imadmin',
+        password: bcrypt.hashSync('imadmin', 10),
         userType:1
     }
 ]
