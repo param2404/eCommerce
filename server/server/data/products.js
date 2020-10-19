@@ -8,7 +8,6 @@ const allProducts = [
         price:400,
         subCategoryId:1,
         categoryId:1,
-        uploadedBy:1,
     }, {
         _id: 2,
         name: 'Crop Top',
@@ -18,7 +17,6 @@ const allProducts = [
         price: 400,
         subCategoryId: 1,
         categoryId: 1,
-        uploadedBy: 1,
     }, {
         _id: 3,
         name: 'Tube',
@@ -28,7 +26,6 @@ const allProducts = [
         price: 400,
         subCategoryId: 1,
         categoryId: 1,
-        uploadedBy: 1,
     }, {
         _id: 4,
         name: 'BoyFriend Jeans',
@@ -38,7 +35,6 @@ const allProducts = [
         price: 1000,
         subCategoryId: 2,
         categoryId: 1,
-        uploadedBy: 1,
     }, {
         _id: 5,
         name: 'Rugged Jeans',
@@ -48,7 +44,6 @@ const allProducts = [
         price: 1000,
         subCategoryId: 2,
         categoryId: 1,
-        uploadedBy: 1,
     }, {
         _id: 6,
         name: 'Slimfit Jeans',
@@ -58,7 +53,6 @@ const allProducts = [
         price: 1000,
         subCategoryId: 2,
         categoryId: 1,
-        uploadedBy: 1,
     }, {
         _id: 7,
         name: 'Long ',
@@ -68,7 +62,6 @@ const allProducts = [
         price: 1000,
         subCategoryId: 3,
         categoryId: 1,
-        uploadedBy: 1,
     }, {
         _id: 8,
         name: 'Rajasthani print',
@@ -78,7 +71,6 @@ const allProducts = [
         price: 1000,
         subCategoryId: 3,
         categoryId: 1,
-        uploadedBy: 1,
     }, {
         _id: 9,
         name: 'Banarsi',
@@ -88,7 +80,6 @@ const allProducts = [
         price: 1000,
         subCategoryId: 4,
         categoryId: 1,
-        uploadedBy: 1,
     }, {
         _id: 10,
         name: 'Muga Silk',
@@ -98,7 +89,6 @@ const allProducts = [
         price: 1000,
         subCategoryId: 4,
         categoryId: 1,
-        uploadedBy: 1,
     }, {
         _id: 11,
         name: 'Off shoulder long',
@@ -108,7 +98,6 @@ const allProducts = [
         price: 1000,
         subCategoryId: 5,
         categoryId: 1,
-        uploadedBy: 1,
     },
 ]
 
