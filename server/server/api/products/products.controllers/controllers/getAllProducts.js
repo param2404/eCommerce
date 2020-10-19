@@ -6,7 +6,7 @@ const _ = require("lodash");
 const getAllProducts = asyncHandler(async (req, res) => {
     try {
         const products = await Products.find()
-        if (!products) {
+        if (products.length <= 0) {
             return Services._noContent(res,"No Products found")
         }
         return Services._response(res,products)
