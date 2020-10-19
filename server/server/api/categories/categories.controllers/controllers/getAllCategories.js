@@ -5,7 +5,7 @@ const _ = require("lodash");
 
 const getAllCategories = asyncHandler(async (req, res) => {
     try {
-        const categories = await Categories.find()
+        const categories = await Categories.find({},{name:1})
         if (categories.length <= 0) {
             return Services._noContent(res, "No Categories found")
         }

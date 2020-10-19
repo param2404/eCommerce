@@ -22,7 +22,9 @@ const getProductsBySubCategory = asyncHandler(async (req, res) => {
                 "Validation Error"
             );
         }
-        const products = await Products.find({ subCategoryId: req.body.subCategoryId })
+        const products = await Products
+            .find({ subCategoryId: req.body.subCategoryId }, { __v: 0, createdAt: 0, updatedAt: 0 })
+            .populate("subCategoryId categoryId uploadedBy", ["name"])
         if (products.length <= 0) {
             return Services._noContent(res, "No Products found")
         }

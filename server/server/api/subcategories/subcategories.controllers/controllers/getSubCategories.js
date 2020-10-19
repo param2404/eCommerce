@@ -22,7 +22,9 @@ const getSubCategories = asyncHandler(async (req, res) => {
                 "Validation Error"
             );
         }
-        const subcategories = await SubCategories.find({ categoryId: req.body.categoryId})
+        const subcategories = await SubCategories
+            .find({ categoryId: req.body.categoryId }, { __v: 0, createdAt: 0, updatedAt: 0 })
+            .populate("categoryId", ["name"])
         if (subcategories.length <= 0) {
             return Services._noContent(res, "No Sub Category found")
         }

@@ -19,7 +19,7 @@ const productSchema = mongoose.Schema({
         ref: 'Categories',
     },
     uploadedBy: {
-        type: Number,
+        type: Schema.Types.ObjectId,
         required: true,
         ref: 'Users',
     }
