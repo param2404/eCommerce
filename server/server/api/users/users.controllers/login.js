@@ -31,7 +31,6 @@ const login = asyncHandler(async (req, res) => {
         return Services._response(res, user)
 
     } catch (e) {
-        console.log(e);
         return Services._handleError(res, e)
     }
 })
