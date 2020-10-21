@@ -75,8 +75,18 @@ const signup = asyncHandler(async (req, res) => {
                 "Validation Error"
             );
         }
-        const token = await jwt.sign({ user: req.body.contactNumber, userType: req.body.userType }, process.env.JWT_TOKEN)
-        await Users.create({...req.body,token})
+        const user = await Users
+            .findOne({ $or: [{ email: req.body.email }, { contactNumber: req.body.contactNumber }] }, { __v: 0, createdAt: 0, updatedAt: 0 })
+        if (user) {
+            return Services._validationError(
+                res,
+                "User already present",
+                "Validation Error"
+            );
+        }
+        const token = await jwt.sign({ user: req.body.email, userType: req.body.userType }, process.env.JWT_SECRET_KEY, { expiresIn: '30d' })
+        await Users.create({ ...req.body, token })
+        delete req.body.password;
         return Services._response(res,{...req.body,token})
     }
     catch (e) {
