@@ -1,8 +1,18 @@
-import React from 'react';
+import React,{useEffect} from 'react';
+import { useDispatch, useSelector } from 'react-redux'
+import { getProductsData} from './../../actions';
+// import connect from 'react-redux'
 
 const Home = () => {
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(getProductsData()) 
+    }, [dispatch])
+    
     return (
-        <div></div>
+        <div>Hello
+        </div>
     )
 }
 

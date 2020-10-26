@@ -2,6 +2,7 @@ const asyncHandler = require('express-async-handler')
 const Users = require('./../user.model')
 const Services = require("../../../service");
 const _ = require("lodash");
+const Joi = require('@hapi/joi')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 
