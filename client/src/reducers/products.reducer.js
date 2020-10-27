@@ -4,7 +4,15 @@ const INITIAL_STATE = {
 };
 
 const ProductsReducer = (state = INITIAL_STATE, action) => {
-            return state;
+    switch (action.type) {
+        case 'PRODUCTS_DATA':
+            return {
+                ...state,
+                allproducts:action.products
+            }
+        default:
+        return state;
+    }
 };
 
 export default ProductsReducer;
