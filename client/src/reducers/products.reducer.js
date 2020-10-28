@@ -1,17 +1,40 @@
+import {
+    GET_PRODUCTS,
+    GET_PRODUCTS_SUCCESS,
+    GET_PRODUCTS_ERROR
+} from './../actions/products.actions'
 
 const INITIAL_STATE = {
- allproducts:[]
+    productLoading: false,
+    allproducts: [],
+    getProductsError: null
 };
 
 const ProductsReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
-        case 'PRODUCTS_DATA':
+        case GET_PRODUCTS:
             return {
                 ...state,
-                allproducts:action.products
+                productLoading: true,
+                allproducts: [],
+                getProductsError: null
+            }
+        case GET_PRODUCTS_SUCCESS:
+            return {
+                ...state,
+                productLoading: false,
+                allproducts: action.products,
+                getProductsError: null
+            }
+        case GET_PRODUCTS_ERROR:
+            return {
+                ...state,
+                allproducts: [],
+                productLoading: false,
+                getProductsError: action.err
             }
         default:
-        return state;
+            return state;
     }
 };
 
