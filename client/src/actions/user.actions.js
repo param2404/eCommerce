@@ -1,4 +1,4 @@
-import { apiPost, apiGet } from "../api/apiUtils";
+import { apiPost } from "../api/apiUtils";
 
 export const LOGIN_USER='LOGIN_USER'
 export const LOGIN_USER_SUCCESS = 'LOGIN_USER_SUCCESS'
@@ -7,6 +7,8 @@ export const LOGIN_USER_ERROR = 'LOGIN_USER_ERROR'
 export const REGISTER_USER = 'REGISTER_USER'
 export const REGISTER_USER_SUCCESS = 'REGISTER_USER_SUCCESS'
 export const REGISTER_USER_ERROR = 'REGISTER_USER_ERROR'
+
+export const SET_SESSION='SET_SESSION'
 
 
 const login = (data) => (dispatch) => {
@@ -17,6 +19,10 @@ const login = (data) => (dispatch) => {
         dispatch({
             type: LOGIN_USER_SUCCESS,
             user: data,
+        })
+        dispatch({
+            type: SET_SESSION,
+            token:data.token
         })
     }).catch((err)=>{
         dispatch({
@@ -34,6 +40,10 @@ const register = (data) => (dispatch) => {
         dispatch({
             type: REGISTER_USER_SUCCESS,
             user: data,
+        })
+        dispatch({
+            type: SET_SESSION,
+            token: data.token
         })
     }).catch((err) => {
         dispatch({

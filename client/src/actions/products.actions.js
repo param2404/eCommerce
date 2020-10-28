@@ -1,4 +1,4 @@
-import { apiPost, apiGet } from "./../api/apiUtils";
+import { apiGet } from "./../api/apiUtils";
 
 
 export const GET_PRODUCTS = 'GET_PRODUCTS';
