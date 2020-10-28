@@ -9,9 +9,9 @@ const Home = () => {
         dispatch(getProductsData())
     }, [dispatch])
 
-    const AllProducts = useSelector(state => state.ProductsReducer.allproducts)
+    const allProducts = useSelector(state => state.ProductsReducer.allproducts)
 
-    return (<div className="row m-0" >{AllProducts ? AllProducts.length && AllProducts.map((product, i) => <div className="col" key={i} > <div className="card m-3" style={{ width: '15rem' }}>
+    return (<div className="row m-0" >{allProducts ? allProducts.length && allProducts.map((product, i) => <div className="col" key={i} > <div className="card m-3" style={{ width: '15rem' }}>
         <img className="card-img-top" src={product.image ? product.image : 'http://lorempixel.com/200/200/toy'} alt="Card image cap" />
             <div className="card-body">
                 <h5 className="card-title">{product.name}</h5>
