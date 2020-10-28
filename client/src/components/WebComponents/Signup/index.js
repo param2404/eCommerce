@@ -1,5 +1,7 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form'
+import DatePicker from "react-datepicker";
+import moment from "moment";
 import { register } from '../../../actions'
 
 const validate = values => {
@@ -33,7 +35,17 @@ const validate = values => {
     return errors
 }
 
-
+const FieldDatePicker = ({ input, placeholder }) => (
+    <DatePicker
+        className="plus-icon"
+        dateFormat="dd/MM/yyyy"
+        selected={input.value || null}
+        onChange={input.onChange}
+        maxDate={new Date()}
+        disabledKeyboardNavigation
+        placeholderText={placeholder}
+       />
+);
 
 const renderField = ({
     input,
@@ -55,7 +67,7 @@ const SignupForm = props => {
     const { handleSubmit, pristine, reset, submitting } = props
 
     const onSignup = (data,dispatch) => {
-        dispatch(register({...data, userType:2}))
+        dispatch(register({...data,dob:moment(data.dob).format('YYYY-MM-DD'), userType:2}))
     }
 
     return (
@@ -66,9 +78,14 @@ const SignupForm = props => {
                 component={renderField}
                 label="Name"
             />
-            <Field name="dob" type="text" component={renderField} label="Date of Birth" />
+            <Field
+                component={FieldDatePicker}
+                name="dob"
+                placeholder="DD/MM/YYYY"
+                label="Date of Birth"
+            />
             <Field name="age" type="number" component={renderField} label="Age" />
-            <Field name="contactNumber" type="number" component={renderField} label="Contact Number" />
+            <Field name="contactNumber" type="text" component={renderField} label="Contact Number" />
             <Field name="email" type="email" component={renderField} label="Email" />
             <Field
                 name="password"

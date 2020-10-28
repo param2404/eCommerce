@@ -5,7 +5,8 @@ import App from './App';
 import {Provider} from 'react-redux'
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import store from './store'
+import "react-datepicker/dist/react-datepicker.css";
+import store from './store';
 
 const reduxStore=store()
 ReactDOM.render(
