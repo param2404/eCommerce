@@ -20,12 +20,12 @@ const validate = values => {
         errors.contactNumber = 'Required'
     } else if (!/^(0|[1-9][0-9]{9})$/i.test(values.contactNumber)) {
         errors.contactNumber = 'Invalid Contact Number'
-    }
+    } 
     if (!values.password) {
         errors.password = 'Required'
     } else if (values.password.length < 8) {
         errors.password = 'Must be 8 characters or more'
-    }
+    } 
     if (!values.confirmpassword) {
         errors.confirmpassword = 'Required'
     } else if (values.confirmpassword !== values.password) {
@@ -35,8 +35,10 @@ const validate = values => {
     return errors
 }
 
-const FieldDatePicker = ({ input, placeholder }) => (
-    <DatePicker
+const FieldDatePicker = ({ input, placeholder, label }) => (
+    <div className="p-2">
+    <label className="mb-0">{label}</label>
+    <div><DatePicker
         className="plus-icon"
         dateFormat="dd/MM/yyyy"
         selected={input.value || null}
@@ -44,7 +46,8 @@ const FieldDatePicker = ({ input, placeholder }) => (
         maxDate={new Date()}
         disabledKeyboardNavigation
         placeholderText={placeholder}
-       />
+        /></div>
+    </div>
 );
 
 const renderField = ({
@@ -53,11 +56,11 @@ const renderField = ({
     type,
     meta: { touched, error }
 }) => (
-        <div>
-            <label>{label}</label>
+        <div className="p-2">
+            <label className="mb-0">{label}</label>
             <div>
                 <input {...input} placeholder={label} type={type} />
-                {touched && error && <span>{error}</span>}
+                {touched && error && <div><span className="text-danger">{error}</span></div>}
             </div>
         </div>
     )
@@ -66,12 +69,13 @@ const renderField = ({
 const SignupForm = props => {
     const { handleSubmit, pristine, reset, submitting } = props
 
-    const onSignup = (data,dispatch) => {
+    const onSignup = (data, dispatch) => {
+        delete data['confirmpassword']
         dispatch(register({...data,dob:moment(data.dob).format('YYYY-MM-DD'), userType:2}))
     }
 
     return (
-        <form onSubmit={handleSubmit(onSignup)}>
+        <form onSubmit={handleSubmit(onSignup)} className="m-auto pt-5 pb-4">
             <Field
                 name="name"
                 type="text"
@@ -89,21 +93,21 @@ const SignupForm = props => {
             <Field name="email" type="email" component={renderField} label="Email" />
             <Field
                 name="password"
-                type="text"
+                type="password"
                 component={renderField}
                 label="Password"
             />
             <Field
                 name="confirmpassword"
-                type="text"
+                type="password"
                 component={renderField}
                 label="Confirm password"
             />
             <div>
-                <button type="submit" disabled={submitting}>
+                <button type="submit" disabled={pristine ||submitting} className="m-2">
                     Sign Up
         </button>
-                <button type="button" disabled={pristine || submitting} onClick={reset}>
+                <button type="button" disabled={pristine || submitting} onClick={reset} className="m-2" >
                     Reset
         </button>
             </div>

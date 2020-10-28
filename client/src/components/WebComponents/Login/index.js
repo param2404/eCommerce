@@ -27,11 +27,11 @@ const renderField = ({
     type,
     meta: { touched, error }
 }) => (
-        <div>
-            <label>{label}</label>
+        <div className="p-2">
+            <label className="mb-0">{label}</label>
             <div>
                 <input {...input} placeholder={label} type={type} />
-                {touched && error && <span>{error}</span>}
+                {touched && error && <div><span className="text-danger">{error}</span></div>}
             </div>
         </div>
     )
@@ -44,19 +44,19 @@ const LoginForm = props => {
     } 
     
     return (
-        <form onSubmit={handleSubmit(onLogin)}>
+        <form onSubmit={handleSubmit(onLogin)} className="m-auto pt-5 pb-4">
             <Field name="email" type="email" component={renderField} label="Email" />
             <Field
                 name="password"
-                type="text"
+                type="password"
                 component={renderField}
                 label="Password"
             />
              <div>
-                <button type="submit" disabled={submitting}>
+                <button type="submit" disabled={pristine || submitting} className="m-2">
                     Login
         </button>
-                <button type="button" disabled={pristine || submitting} onClick={reset}>
+                <button type="button" disabled={pristine || submitting} onClick={reset} className="m-2">
                     Reset
         </button>
             </div>
