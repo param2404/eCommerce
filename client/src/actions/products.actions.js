@@ -19,6 +19,8 @@ const getProductsData = () => (dispatch) => {
             type: GET_PRODUCTS_ERROR,
             err: err.response.data.message
         })
+    }).catch((e) => {
+        console.log(e)
     });
 };
 

@@ -29,6 +29,8 @@ const login = (data) => (dispatch) => {
             type: LOGIN_USER_ERROR,
             err:err.response.data.message
         })
+    }).catch((e) => {
+        console.log(e)
     });
 };
 
@@ -50,6 +52,8 @@ const register = (data) => (dispatch) => {
             type: REGISTER_USER_ERROR,
             err: err.response.data.message
         })
+    }).catch((e) => {
+        console.log(e)
     });
 };
 
