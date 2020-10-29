@@ -12,9 +12,16 @@ const categorySchema = mongoose.Schema({
         required: true
     }
 }, {
-    timestamps: true,
+        timestamps: true,
+        toJSON: { virtuals: true } 
 }
 )
+
+categorySchema.virtual('subCategories', {
+    ref: 'SubCategories', // The model to use
+    localField: '_id', // Find people where `localField`
+    foreignField: 'categoryId', // is equal to `foreignField`
+ });
 
 const Categories = mongoose.model("Categories", categorySchema)
 exports = module.exports = Categories

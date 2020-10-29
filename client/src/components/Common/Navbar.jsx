@@ -26,9 +26,7 @@ const Navbar = React.memo(() => {
                        {category.name}
         </a>
                     <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a className="dropdown-item" href="#">Action</a>
-                        <div className="dropdown-divider"></div>
-                        <a className="dropdown-item" href="#">Something else here</a>
+                        {category.subCategories.map((s)=><a className="dropdown-item" href="#">{s.name}</a>)}
                     </div>
                 </li>)}  </ul>
             <button className="btn btn-light my-2 my-sm-0" type="submit">Sign In</button>
