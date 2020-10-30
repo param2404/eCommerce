@@ -1,4 +1,5 @@
-import React,{useEffect} from 'react';
+import React, { useEffect } from 'react';
+import {Link} from 'react-router-dom'
 import logo from './../../assets/logo.jpeg';
 import { useDispatch, useSelector } from 'react-redux'
 import {getCategoriesData} from './../../actions'
@@ -21,12 +22,12 @@ const Navbar = React.memo(() => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav mr-auto">
                 {allCategories.map((category,i)=>
-              <li className="nav-item dropdown">
-                    <a className="nav-link dropdown-toggle white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <li className="nav-item dropdown" key={i}>
+                    <a className="nav-link dropdown-toggle white" href="/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                        {category.name}
         </a>
                     <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                        {category.subCategories.map((s)=><a className="dropdown-item" href="#">{s.name}</a>)}
+                            {category.subCategories.map((s, i) => <Link to={`/${s.name}/${s._id}`} className="dropdown-item" key={i}>{s.name}</Link>)}
                     </div>
                 </li>)}  </ul>
             <button className="btn btn-light my-2 my-sm-0" type="submit">Sign In</button>

@@ -5,5 +5,5 @@ export const apiKeys = {
     login: '/user/login',
     getCategories: '/category/allcategories',
     getProducts: '/products/allproducts',
-
+    getProductsBySubCategory:'/products/products'
 };
