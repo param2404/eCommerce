@@ -1,5 +1,5 @@
 import {
-    SET_SESSION,
+    SET_SESSION, CLEAR_SESSION,
 } from './../actions/user.actions'
 
 const INITIAL_STATE = {
@@ -12,6 +12,11 @@ const session = (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 sessionToken:action.token
+            }
+        case CLEAR_SESSION:
+            return {
+                ...state,
+                sessionToken:null
             }
         default:
             return state;

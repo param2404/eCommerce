@@ -8,7 +8,8 @@ export const REGISTER_USER = 'REGISTER_USER'
 export const REGISTER_USER_SUCCESS = 'REGISTER_USER_SUCCESS'
 export const REGISTER_USER_ERROR = 'REGISTER_USER_ERROR'
 
-export const SET_SESSION='SET_SESSION'
+export const SET_SESSION = 'SET_SESSION'
+export const CLEAR_SESSION = 'CLEAR_SESSION'
 
 
 const login = (data) => (dispatch) => {
@@ -57,4 +58,8 @@ const register = (data) => (dispatch) => {
     });
 };
 
-export { login,register }
+const clearSession = () => (dispatch) => {
+    dispatch({ type: CLEAR_SESSION })   
+};
+
+export { login,register, clearSession }

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form'
 import {login} from './../../../actions'
+import { Link } from 'react-router-dom'
 
 
 const validate = values => {
@@ -59,6 +60,7 @@ const LoginForm = props => {
                     Reset
         </button>
             </div>
+            New User<Link to="/register">Register</Link>
         </form>
     )
 }
