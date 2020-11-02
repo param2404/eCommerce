@@ -1,7 +1,7 @@
 import React, { useEffect,useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { getProductsData } from './../../actions';
-import Loader from './../Common/Loader'
+import { getProductsData } from '../../../actions';
+import Loader from '../../Common/Loader'
 
 const Products =React.memo(() => {
     const dispatch = useDispatch();
