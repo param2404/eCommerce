@@ -5,6 +5,7 @@ import ProductsReducer from './products.reducer';
 import UserReducer from './user.reducer';
 import session from './session.reducer';
 import CategoriesReducer from './categories.reducer';
+import CartReducer from './cart.reducer'
 import { connectRouter } from 'connected-react-router';
 
 export default (history) =>
@@ -14,5 +15,6 @@ export default (history) =>
         UserReducer,
         ProductsReducer,
         CategoriesReducer,
+        CartReducer,
         router: connectRouter(history),
     });

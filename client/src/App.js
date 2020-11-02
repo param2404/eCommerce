@@ -7,7 +7,7 @@ import Products from './components/WebComponents/Products'
 import Signup from './components/WebComponents/Signup'
 import Login from './components/WebComponents/Login'
 import SubCategory from './components/WebComponents/SubProducts'
-import Spinner from './components/Common/Loader'
+import Cart from './components/WebComponents/Cart'
 import store from './store'
 
 const reduxStore = store()
@@ -20,7 +20,7 @@ function App() {
         <Route exact path="/:sub/:subcategory" component={SubCategory} />
         <Route path="/register" component={Signup} />
         <Route path="/login" component={Login} />
-        <Route path="/spin" component={Spinner} />
+        <Route path="/cart" component={Cart} />
       </Switch>
       <Footer />
     </ConnectedRouter>

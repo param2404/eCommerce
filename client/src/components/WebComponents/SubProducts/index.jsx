@@ -1,6 +1,6 @@
 import React, { useEffect, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { getProductsBySubCategory } from '../../../actions';
+import { getProductsBySubCategory ,addToCart} from '../../../actions';
 import Loader from './../../Common/Loader'
 
 
@@ -22,10 +22,9 @@ const SubProduct = React.memo((props) => {
                     <img className="card-img-top" src={product.image ? product.image : 'https://img.icons8.com/plasticine/2x/product.png'} alt="Card cap" />
                     <div className="card-body">
                         <h5 className="card-title">{product.name}</h5>
+                        <p className="card-subtitle">Rs {product.price}</p>
                         <p className="card-text">{product.description}</p>
-                        <p className="card-text">Price : Rs{product.price}</p>
-                        <p className="card-text">Quantity</p>
-                        <a href="/" className="btn btn-primary">Add to cart</a>
+                        <button className="btn btn-primary" onClick={() => dispatch(addToCart({ productId: product._id, productQuantity: 1, amount: product.price }))}>Add to cart</button>
                     </div>
                 </div></div>
                 )
@@ -33,7 +32,7 @@ const SubProduct = React.memo((props) => {
         } else {
            return <h3>No Products Found</h3>
         }
-    },[allProducts])
+    },[allProducts,dispatch])
 
     return (productLoading ? <Loader /> : renderProducts())
 })
