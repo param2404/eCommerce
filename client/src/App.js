@@ -7,6 +7,7 @@ import Home from './components/Home'
 import Signup from './components/WebComponents/Signup'
 import Login from './components/WebComponents/Login'
 import SubCategory from './components/WebComponents/SubProducts'
+import Spinner from './components/Common/Loader'
 import store from './store'
 
 const reduxStore = store()
@@ -19,6 +20,7 @@ function App() {
         <Route exact path="/:sub/:subcategory" component={SubCategory} />
         <Route path="/register" component={Signup} />
         <Route path="/login" component={Login} />
+        <Route path="/spin" component={Spinner} />
       </Switch>
       <Footer />
     </ConnectedRouter>
