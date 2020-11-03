@@ -9,15 +9,7 @@ const Cart = React.memo(() => {
     const myCart = useSelector(state => state.CartReducer.mycart)
 
     const handleTotalAmount = useCallback(() => {
-        let totalPrice = 0;
-        let Price=0
-        let CalculatedPrice=myCart.map((m) => {
-            Price = Price + (m.productQuantity * m.amount)  
-            //setTotalPrice(totalPrice)
-            console.log(totalPrice)
-            return Price
-        })
-        return totalPrice+=CalculatedPrice
+        return myCart.reduce((a, b) => a + (b['amount']* b['productQuantity'] || 0), 0);
     },[myCart])
 
     return (<div><table className="table table-bordered" style={{ width: '80%', margin: '50px auto' }}>
@@ -44,7 +36,7 @@ const Cart = React.memo(() => {
            </tr>)}
             <tr>
                 <td colSpan="4">Total Amount</td>
-                <td colSpan="1">{handleTotalAmount()}</td>
+                <td colSpan="1">Rs {handleTotalAmount()}</td>
                 <td><button>CHECKOUT</button></td>
             </tr>
         </tbody>
