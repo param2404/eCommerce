@@ -22,7 +22,7 @@ const Products =React.memo(() => {
                         <h5 className="card-title">{product.name}</h5>
                         <p className="card-subtitle"> Rs {product.price}</p>
                         <p className="card-text">{product.description}</p>
-                        <button className="btn btn-primary" onClick={() => dispatch(addToCart({ productId: product._id, productQuantity:1,amount:product.price }))}>Add to cart</button>
+                        <button className="btn btn-primary" onClick={() => dispatch(addToCart({ productId: product._id, productName:product.name, productQuantity:1,amount:product.price }))}>Add to cart</button>
                     </div>
                 </div></div>
                 )
