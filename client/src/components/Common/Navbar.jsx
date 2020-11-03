@@ -35,7 +35,7 @@ const Navbar = React.memo(() => {
                             {category.subCategories.map((s, i) => <Link to={`/${s.name}/${s._id}`} className="dropdown-item" key={i}>{s.name}</Link>)}
                         </div>
                     </li>)}  </ul>
-            <Link to="/"><img src={logo} height='30px' alt='' /></Link>
+            <Link to="/cart"><img src={logo} height='30px' alt='' /></Link>
             {session ? <button className="btn btn-light my-2 my-sm-0" type="submit" onClick={() => dispatch(clearSession())}>Log Out</button> : <Link to="/login"><button className="btn btn-light my-2 my-sm-0" type="submit">Sign In</button></Link>}
         </div>
     </nav>)

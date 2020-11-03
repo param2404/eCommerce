@@ -24,7 +24,15 @@ const CartReducer = (state = INITIAL_STATE, action) => {
          case HANDLE_QUANTITY_CART:
              return {
                  ...state,
-                 mycart: action.data,
+                 mycart: state.mycart.map((item, index) => {
+                      if (item.productId === action.data.productId) {
+                         return {
+                             ...item, 
+                             productQuantity: action.data.count  
+                         }
+                     }
+                     return item;
+                 })
              }
         default:
             return state;
