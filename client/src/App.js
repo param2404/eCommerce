@@ -8,6 +8,7 @@ import Signup from './components/WebComponents/Signup'
 import Login from './components/WebComponents/Login'
 import SubCategory from './components/WebComponents/SubProducts'
 import Cart from './components/WebComponents/Cart'
+import Checkout from './components/WebComponents/Checkout'
 import store from './store'
 
 const reduxStore = store()
@@ -21,6 +22,7 @@ function App() {
         <Route path="/register" component={Signup} />
         <Route path="/login" component={Login} />
         <Route path="/cart" component={Cart} />
+        <Route path="/checkout" component={Checkout} />
       </Switch>
       <Footer />
     </ConnectedRouter>

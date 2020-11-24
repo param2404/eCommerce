@@ -1,10 +1,10 @@
-import React, { useState, useCallback } from 'react'
+import React, { useCallback } from 'react'
+import {Link} from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { removeFromCart, handleCartProductQuantity} from './../../../actions'
 
 
 const Cart = React.memo(() => {
-    const [totalPrice,setTotalPrice]=useState(0)
     const dispatch=useDispatch()
     const myCart = useSelector(state => state.CartReducer.mycart)
 
@@ -35,9 +35,9 @@ const Cart = React.memo(() => {
                <td><button onClick={()=>dispatch(removeFromCart(c.productId))}>Remove</button></td>
            </tr>)}
             <tr>
-                <td colSpan="4">Total Amount</td>
-                <td colSpan="1">Rs {handleTotalAmount()}</td>
-                <td><button>CHECKOUT</button></td>
+                <th colSpan="4">Total Amount</th>
+                <th colSpan="1">Rs {handleTotalAmount()}</th>
+                <td><Link to="/checkout"><button>CHECKOUT</button></Link></td>
             </tr>
         </tbody>
     </table></div>     
